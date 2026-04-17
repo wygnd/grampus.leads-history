@@ -1,26 +1,28 @@
-import './assets/css/main.css'
+import "./assets/css/main.css";
 
-import { createApp } from 'vue'
-import { createRouter, createWebHistory } from 'vue-router'
-import { routes, handleHotUpdate } from 'vue-router/auto-routes'
-import b24UiPlugin from '@bitrix24/b24ui-nuxt/vue-plugin'
+import { createApp } from "vue";
+import { createPinia } from "pinia";
+import { createRouter, createWebHistory } from "vue-router";
+import { routes, handleHotUpdate } from "vue-router/auto-routes";
+import b24UiPlugin from "@bitrix24/b24ui-nuxt/vue-plugin";
 
-import App from './App.vue'
+import App from "./App.vue";
 
-const app = createApp(App)
+const pinia = createPinia();
+const app = createApp(App);
 
-const basePath = import.meta.env.BASE_URL || '/'
+const basePath = import.meta.env.BASE_URL || "/";
 const router = createRouter({
   routes,
-  history: createWebHistory(basePath)
-})
+  history: createWebHistory(basePath),
+});
 
-app.use(router)
-app.use(b24UiPlugin)
+app.use(pinia);
+app.use(router);
+app.use(b24UiPlugin);
 
-app.mount('#app')
+app.mount("#app");
 
 if (import.meta.hot) {
-  handleHotUpdate(router)
+  handleHotUpdate(router);
 }
-

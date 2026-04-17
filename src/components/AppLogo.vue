@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import Market1Icon from '@bitrix24/b24icons-vue/main/Market1Icon'
+import { B24Icon } from "@bitrix24/b24icons-vue";
 </script>
 
 <template>
-  <Market1Icon />
+  <!--  <Bitrix24Icon class="w-3 h-3" />-->
+  <B24Icon name="common-b24::Bitrix24Icon" />
 </template>

@@ -1,18 +1,20 @@
-import eslintPluginVue from 'eslint-plugin-vue'
-import ts from 'typescript-eslint'
+import eslintPluginVue from "eslint-plugin-vue";
+import ts from "typescript-eslint";
+import prettierConfig from "@vue/eslint-config-prettier";
 
 export default ts.config(
   ...ts.configs.recommended,
-  ...eslintPluginVue.configs['flat/recommended'],
+  ...eslintPluginVue.configs["flat/recommended"],
   {
-    files: ['*.vue', '**/*.vue'],
+    files: ["*.vue", "**/*.vue"],
     languageOptions: {
       parserOptions: {
-        parser: '@typescript-eslint/parser'
-      }
+        parser: "@typescript-eslint/parser",
+      },
     },
     rules: {
-      'vue/multi-word-component-names': 'off'
-    }
-  }
-)
+      "vue/multi-word-component-names": "off",
+    },
+    extends: [prettierConfig],
+  },
+);
