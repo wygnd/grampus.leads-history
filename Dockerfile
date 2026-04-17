@@ -9,7 +9,7 @@ RUN pnpm run build
 
 FROM nginx:stable-alpine AS prod-stage
 COPY --from=build-stage /app/dist /app
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 8080
 
